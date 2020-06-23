@@ -1,25 +1,133 @@
 {
-  "inbounds": [
-    {
-      "port": 8080,
-      "protocol": "vmess",
-      "settings": {
-        "clients": [
-          {
-            "id": "8c35bef3-d51f-41ab-ac87-7b053410495b",
-            "alterId": 64
-          }
-        ]
-      },
-      "streamSettings": {
-        "network":"ws"
-      }
-    }
-  ],
-  "outbounds": [
-    {
-      "protocol": "freedom",
-      "settings": {}
-    }
-  ]
+  	
+	
+  "inbounds": 
+	[
+		{
+		  "port": 8080,
+		  "protocol": "vmess",
+		  "settings": 
+			{
+				"clients": 
+				[
+				  {
+					"id": "687d1cf8-5e25-4137-be34-a4876a204520",
+					"alterId": 64
+				  }
+				]
+			},
+		  "streamSettings": 
+			{
+				"network":"ws"
+			}
+		}
+	],
+  
+  
+  
+  
+  
+  
+  "outbounds": 
+	[    	
+		{
+		  "protocol": "freedom",
+		  "settings": {"domainStrategy": "UseIP"}
+		},
+		{
+		  "protocol": "blackhole",
+		  "tag": "blocked",
+		  "settings": {}
+		}
+	],
+	  
+  
+  
+
+
+"dns":
+	{
+	  "hosts": 
+		{
+		"geosite:category-ads": "127.0.0.1"
+		},
+	  "servers": 
+		[
+			{
+					"address": "8.8.8.8",
+					"domains": 
+						[
+						  
+						  "keyword:netflix",
+						  "keyword:nflx",
+						  "keyword:nflxvideo",				  
+						  "domain:netflix.com",
+						  "domain:netflix.net",
+						  "domain:nflximg.net",
+						  "domain:nflxvideo.net",
+						  "domain:nflxso.net",
+						  "domain:nflxext.com",
+						  "domain:netflix.com",
+						  "domain:nflximg.com",
+						  "domain:nflxvideo.com",
+						  "domain:nflxso.com",
+						  "domain:nflxext.ext",
+						  
+						  "keyword:dssott",
+						  "keyword:disney",
+						  "keyword:disneyplus",
+						  "keyword:disney-plus",
+						  "keyword:bamgrid",
+						  "keyword:conviva"
+						],
+					"port": 53
+			},
+					
+			"8.8.8.8",
+			"8.8.4.4",
+			"1.1.1.1",
+			"9.9.9.9"
+			
+		],
+	  
+	  "clientIp": "169.62.205.146"
+	  
+	},
+
+
+
+  
+  
+ 
+ 
+ 
+  "routing": 
+	{
+		"domainStrategy": "UseIP",
+		"rules": 
+			[
+				{
+					"type": "field",
+					"outboundTag": "blocked",
+					"ip": 
+						[
+						  "0.0.0.0/8",
+						  "10.0.0.0/8",
+						  "100.64.0.0/10",
+						  "169.254.0.0/16",
+						  "172.16.0.0/12",
+						  "192.0.0.0/24",
+						  "192.0.2.0/24",
+						  "192.168.0.0/16",
+						  "198.18.0.0/15",
+						  "198.51.100.0/24",
+						  "203.0.113.0/24",
+						  "::1/128",
+						  "fc00::/7",
+						  "fe80::/10"
+						]
+				}			  
+			  
+			]
+	}
 }
